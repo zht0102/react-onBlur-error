@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="targetDiv"></div>
+<input type="text" id="myInput">
+<button id="myButton">按钮</button>
+
+
+<script>
+    var input = document.getElementById("myInput");
+    var targetDiv = document.getElementById("targetDiv");
+    var button = document.getElementById("myButton");
+
+    // 绑定blur事件处理函数
+    input.addEventListener("blur", function() {
+        // 创建新的复杂DOM结构
+        var container = document.createElement("div");
+        container.classList.add("container");
+
+        var wrapper = document.createElement("div");
+        wrapper.classList.add("wrapper");
+
+        var section = document.createElement("section");
+        section.classList.add("section");
+
+        var header = document.createElement("h2");
+        header.textContent = "New Content";
+
+        var paragraph = document.createElement("p");
+        paragraph.textContent = input.value;
+
+        section.appendChild(header);
+        section.appendChild(paragraph);
+
+        wrapper.appendChild(section);
+
+        container.appendChild(wrapper);
+
+        // 将新的复杂DOM结构追加到目标div中
+        targetDiv.appendChild(container);
+
+    });
+
+    // 添加点击事件处理函数
+    button.addEventListener("click", function() {
+        console.log("Button clicked!");
+    });
+</script>
+
+</body>
+</html>
